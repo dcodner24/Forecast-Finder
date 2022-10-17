@@ -1,0 +1,23 @@
+:root{
+    --card-color: rgb(50, 61, 79);
+    --header-color: rgb(56, 59, 146);
+}
+
+
+.navbar{
+    background-color: var(--header-color);
+    color: white;
+}
+.card{
+    background-color: var(--card-color);
+    color: white
+}
+.currentWeather{
+    color: white;
+}
+body{
+    background-image: url(../assets/images/forecastBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+}

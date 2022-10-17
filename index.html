@@ -7,25 +7,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/86f2929fda.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
+    <!-- Modal for searching on mobile and tablets -->
+    <!-- Button trigger modal -->
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serachModalLabel">City Selection</h5>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="City Name" aria-label="City Name"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="btn-group-vertical d-flex flex-column align-items-center">
+                        <button class="btn btn-outline-info" type="button">Recent Search 1</button>
+                        <button class="btn btn-outline-info" type="button">Recent Search 1</button>
+                        <button class="btn btn-outline-info" type="button">Recent Search 1</button>
+                        <button class="btn btn-outline-info" type="button">Recent Search 1</button>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <!-- Navbar on top responsible for displaying title and holding on to the modal open button -->
+    <nav class="navbar navbar-dark h-auto d-flex justify-content-between">
+        <h2 class="col-9">Weather Dashboard</h2>
+        <button class="btn btn-info col-3 col-md-2 col-lg-1" id="navbar-button" data-toggle="modal"
+            data-target="#searchModal">City</button>
+    </nav>
+
+    <!-- Section for displaying current weather data -->
+    <section class="container-fluid bg-dark h-25 d-flex flex-column justify-content-center currentWeather">
+        <h1><span id="cityName">City</span> (<span id="currentDate">Date</span>)<span id="currentIcon">ICON</span></h1>
+        <p>Temp: <span id="temp0"></span></p>
+        <p>Wind: <span id="wind0"></span></p>
+        <p>Humidity: <span id="hum0"></span></p>
+    </section>
 
 
+    <!-- Section for holding 5-day cards -->
+    <section class="fiveDayForecast">
+        <h3 class="pt-4 ml-4">5-day Forecast:</h3>
+        <div class="fiveDayForecast container-fluid d-flex flex-column lh-100 flex-md-row justify-content-center align-items-center card-container">
+            <div class="card mb-2 mx-1" style="width: 18rem; height:auto">
+                <div class="card-body">
+                    <h5 class="card-title">DATE PLACEHOLDER</h5>
+                    <p class="card-text">ICON</p>
+                    <p class="card-text">Temp: <span id="temp0"></span></p>
+                    <p class="card-text">Wind: <span id="wind0"></span></p>
+                    <p class="card-text">Humidity: <span id="hum0"></span></p>
+                </div>
+            </div>
+
+            <div class="card mb-2 mx-1" style="width: 18rem; height:auto">
+                <div class="card-body">
+                    <h5 class="card-title">DATE PLACEHOLDER</h5>
+                    <p class="card-text">ICON</p>
+                    <p class="card-text">Temp: <span id="temp0"></span></p>
+                    <p class="card-text">Wind: <span id="wind0"></span></p>
+                    <p class="card-text">Humidity: <span id="hum0"></span></p>
+                </div>
+            </div>
 
 
+            <div class="card mb-2 mx-1" style="width: 18rem; height:auto">
+                <div class="card-body">
+                    <h5 class="card-title">DATE PLACEHOLDER</h5>
+                    <p class="card-text">ICON</p>
+                    <p class="card-text">Temp: <span id="temp0"></span></p>
+                    <p class="card-text">Wind: <span id="wind0"></span></p>
+                    <p class="card-text">Humidity: <span id="hum0"></span></p>
+                </div>
+            </div>
 
 
+            <div class="card mb-2 mx-1" style="width: 18rem; height:auto">
+                <div class="card-body">
+                    <h5 class="card-title">DATE PLACEHOLDER</h5>
+                    <p class="card-text">ICON</p>
+                    <p class="card-text">Temp: <span id="temp0"></span></p>
+                    <p class="card-text">Wind: <span id="wind0"></span></p>
+                    <p class="card-text">Humidity: <span id="hum0"></span></p>
+                </div>
+            </div>
 
+
+            <div class="card mb-2 mx-1" style="width: 18rem; height:auto">
+                <div class="card-body">
+                    <h5 class="card-title">DATE PLACEHOLDER</h5>
+                    <p class="card-text">ICON</p>
+                    <p class="card-text">Temp: <span id="temp0"></span></p>
+                    <p class="card-text">Wind: <span id="wind0"></span></p>
+                    <p class="card-text">Humidity: <span id="hum0"></span></p>
+                </div>
+            </div>
+
+
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
