@@ -24,6 +24,6 @@ body{
 }
 
 .currentWeather{
-    padding-top:100px;
-    padding-bottom: 100px;
+    position: relative;
+    min-height: 40%;
 }
