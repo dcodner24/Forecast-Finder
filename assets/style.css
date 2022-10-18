@@ -16,8 +16,14 @@
     color: white;
 }
 body{
-    background-image: url(../assets/images/forecastBackground.jpg);
+    /* img */
+    background-image: url(../assets/images/5-day-background1.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center;
+}
+
+.currentWeather{
+    padding-top:100px;
+    padding-bottom: 100px;
 }
