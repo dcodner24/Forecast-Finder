@@ -17,7 +17,7 @@ function getLatLon() {
   // let userSearch = "Madisonville"
   $('#cityInput').val("")
 
-  fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + userSearch + "&limit=5&appid=" + apiKey)
+  fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + userSearch + "&limit=5&appid=" + apiKey)
     .then(function (response) {
       return response.json();
     })
