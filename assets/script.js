@@ -1,9 +1,3 @@
-// api call example
-// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-
-// Coordinates Call
-// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}
-
 const apiKey = "614be3f63a8157b983e7ea5ed4d2b487"
 let locations;
 let recentSearches = {
@@ -13,32 +7,6 @@ let recentSearches = {
 }
 
 onLoad();
-
-
-
-
-
-
-
-
-function onLoad() {
-  loadLocalStorage();
-  // Loads a default location (my hometown)
-  // Could be improved later by grabbing user ip and updating current location dynamically.
-  loadWeather(30.9498688, -95.9127773);
-  $('#searchBtn').on('click', getLatLon);
-}
-
-function loadLocalStorage() {
-  if (JSON.parse(localStorage.getItem('recentSearches'))) {
-    recentSearches = JSON.parse(localStorage.getItem('recentSearches'));
-  }
-  else {
-    localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-  }
-}
-
-
 // Gets the lat and lon for new location search
 function getLatLon() {
   $('#searchModal').modal('hide');
@@ -63,22 +31,32 @@ function getLatLon() {
     })
 }
 
-// Loads the coordinates of the selected location from the validation modal
-function newLocation(index) {
-  const currentLat = locations[index].lat;
-  const currentLon = locations[index].lon;
-  const currentCity = $(`#location${index}`).text();
-
-  rotateRecents(currentLat, currentLon, currentCity)
-
-
-  // Example of how to pull info off of the button clicked
-  // console.log($(`#location${index}`).text())
-
-  $('#validationModal').modal('hide');
-  loadWeather(currentLat, currentLon);
+// Runs specific functions on page load to set up page for user
+function onLoad() {
+  loadLocalStorage();
+  // Loads a default location (my hometown)
+  // Could be improved later by grabbing user ip and updating current location dynamically.
+  loadWeather(30.9498688, -95.9127773);
+  $('#searchBtn').on('click', getLatLon);
 }
 
+// Pulls local storage on page load to load in recent search buttons, if no information is present a blank object is loaded into local storage.
+function loadLocalStorage() {
+  if (JSON.parse(localStorage.getItem('recentSearches'))) {
+    recentSearches = JSON.parse(localStorage.getItem('recentSearches'));
+  }
+  else {
+    localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+  }
+}
+
+// Loads recent buttons into the search modal based on how many entries are in the recentSearches object
+function loadRecentButtons() {
+  for (var i = 0; i < recentSearches.city.length; i++) {
+    $(`#recent${i}`).text(recentSearches.city[i]);
+    $(`#recent${i}`).css('display', 'inline');
+  }
+}
 
 // Loads weather onto page based on supplied cooordinates
 function loadWeather(lat, lon) {
@@ -152,14 +130,18 @@ function loadWeather(lat, lon) {
   loadRecentButtons()
 }
 
+// Loads the coordinates of the selected location from the validation modal
+function newLocation(index) {
+  const currentLat = locations[index].lat;
+  const currentLon = locations[index].lon;
+  const currentCity = $(`#location${index}`).text();
 
-function loadRecentButtons() {
-  for (var i = 0; i < recentSearches.city.length; i++) {
-    $(`#recent${i}`).text(recentSearches.city[i]);
-    $(`#recent${i}`).css('display', 'inline');
-  }
+  rotateRecents(currentLat, currentLon, currentCity)
+  $('#validationModal').modal('hide');
+  loadWeather(currentLat, currentLon);
 }
 
+// Adds new searches into local storage and rotates old searches out
 function rotateRecents(lat, lon, city) {
   // Does a check to see if the arrays are at capacity
   if (recentSearches.city.length < 4 && recentSearches.lat.length < 4 && recentSearches.lon.length < 4) {
@@ -183,6 +165,13 @@ function rotateRecents(lat, lon, city) {
   }
   localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
 }
+
+
+
+
+
+
+
 
 
 
