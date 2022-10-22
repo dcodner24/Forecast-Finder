@@ -8,9 +8,9 @@ The goal of this project was create a functional weather application for users t
 
 ## Usage
 ---
-    On page load my hometown will be loaded into the weather app so that the page is populated with data. To search for a new city, the user must simply click the city button in the top right of the page, type the desired city, and click search. If the API responds to the city input into the search box, a modal will appear on screen prompting the user to select which city they want to display data for. Upon selecting the specific city from the Geocoding API call, they page will be updated with weather data. 
-    ----
-    If a user would like to load a recent search back onto the page, they can open the search modal again and they will see that the application has the last four recent searchles loaded in as buttons.
+On page load my hometown will be loaded into the weather app so that the page is populated with data. To search for a new city, the user must simply click the city button in the top right of the page, type the desired city, and click search. If the API responds to the city input into the search box, a modal will appear on screen prompting the user to select which city they want to display data for. Upon selecting the specific city from the Geocoding API call, they page will be updated with weather data. 
+
+If a user would like to load a recent search back onto the page, they can open the search modal again and they will see that the application has the last four recent searchles loaded in as buttons.
 <br>
 
 ## Features
