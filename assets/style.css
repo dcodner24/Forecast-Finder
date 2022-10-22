@@ -27,3 +27,7 @@ body{
     position: relative;
     min-height: 43%;
 }
+
+#recent0, #recent1, #recent2, #recent3{
+    display:none;
+}
