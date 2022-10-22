@@ -13,11 +13,8 @@
 </head>
 
 <body>
-    <!-- Modal for searching on mobile and tablets -->
-    <!-- Button trigger modal -->
 
-
-    <!-- Modal -->
+    <!-- Search Modal -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -35,10 +32,10 @@
                     </div>
 
                     <div class="btn-group-vertical d-flex flex-column align-items-center" id="recentBtns">
-                        <button class="btn btn-outline-info" type="button">Recent Search 1</button>
-                        <button class="btn btn-outline-info" type="button">Recent Search 2</button>
-                        <button class="btn btn-outline-info" type="button">Recent Search 3</button>
-                        <button class="btn btn-outline-info" type="button">Recent Search 4</button>
+                        <button class="btn btn-outline-info" id='recent0' onclick="loadWeather(recentSearches.lat[0],recentSearches.lon[0])" type="button"></button>
+                        <button class="btn btn-outline-info" id='recent1' onclick="loadWeather(recentSearches.lat[1],recentSearches.lon[1])" type="button"></button>
+                        <button class="btn btn-outline-info" id='recent2' onclick="loadWeather(recentSearches.lat[2],recentSearches.lon[2])" type="button"></button>
+                        <button class="btn btn-outline-info" id='recent3' onclick="loadWeather(recentSearches.lat[3],recentSearches.lon[3])" type="button"></button>
                     </div>
 
                 </div>
@@ -49,6 +46,7 @@
         </div>
     </div>
 
+    <!-- Validation Modal -->
     <div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModal" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -60,15 +58,15 @@
                     <p>Please select the desired city below:</p>
 
                     <div class="btn-group-vertical d-flex flex-column align-items-center" id="cityBtns">
-                        <button class="btn btn-outline-info cityBtn" type="button" onclick="updateWeather(0)">City
+                        <button class="btn btn-outline-info cityBtn" type="button" id="location0" onclick="newLocation(0)">City
                             1</button>
-                        <button class="btn btn-outline-info cityBtn" type="button" onclick="updateWeather(1)">City
+                        <button class="btn btn-outline-info cityBtn" type="button" id="location1" onclick="newLocation(1)">City
                             2</button>
-                        <button class="btn btn-outline-info cityBtn" type="button" onclick="updateWeather(2)">City
+                        <button class="btn btn-outline-info cityBtn" type="button" id="location2" onclick="newLocation(2)">City
                             3</button>
-                        <button class="btn btn-outline-info cityBtn" type="button" onclick="updateWeather(3)">City
+                        <button class="btn btn-outline-info cityBtn" type="button" id="location3" onclick="newLocation(3)">City
                             4</button>
-                        <button class="btn btn-outline-info cityBtn" type="button" onclick="updateWeather(4)">City
+                        <button class="btn btn-outline-info cityBtn" type="button" id="location4" onclick="newLocation(4)">City
                             5</button>
 
                     </div>
