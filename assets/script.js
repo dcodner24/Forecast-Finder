@@ -1,4 +1,4 @@
-
+let apiKey = '614be3f63a8157b983e7ea5ed4d2b487'
 let locations;
 let recentSearches = {
   city: [],
